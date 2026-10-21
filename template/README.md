@@ -35,7 +35,7 @@ Once running, open:
 
 ## Testing
 
-Tests use `@cloudflare/vitest-pool-workers` with a local D1 binding (no real database needed):
+Tests use `@cloudflare/vitest-plugin` with a local D1 binding (no real database needed):
 
 ```bash
 npm test
@@ -78,3 +78,5 @@ migrations/
 4. Add a D1 migration in `migrations/`
 
 See the [Chanfana docs](https://chanfana.pages.dev) for the full API reference.
+
+Development and local Workers tests require Node.js 22.19 or newer.

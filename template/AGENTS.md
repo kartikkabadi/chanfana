@@ -12,7 +12,7 @@ npm run db:migrate:local   # Apply D1 migrations locally
 npm run db:migrate:remote  # Apply D1 migrations to production
 ```
 
-Tests use `@cloudflare/vitest-pool-workers` with a local miniflare D1 binding. Config: `vitest.config.mts`.
+Tests use `@cloudflare/vitest-plugin` with a local miniflare D1 binding. Config: `vitest.config.mts`.
 
 ## Project Layout
 

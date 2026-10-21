@@ -291,7 +291,9 @@ export class OpenAPIRoute<HandleArgs extends Array<object> = any> {
         throw parseError;
       }
 
-      const parsed = await responseSchema.parseAsync(body);
+      const result = await responseSchema.safeParseAsync(body);
+      if (!result.success) throw result.error;
+      const parsed = result.data;
 
       // Reconstruct the Response with validated body and original status/headers.
       // Delete Content-Length and Transfer-Encoding since the body size may have changed
@@ -311,7 +313,9 @@ export class OpenAPIRoute<HandleArgs extends Array<object> = any> {
       const responseSchema = this.getResponseSchema(200);
       if (!responseSchema) return resp;
 
-      return await responseSchema.parseAsync(resp);
+      const result = await responseSchema.safeParseAsync(resp);
+      if (!result.success) throw result.error;
+      return result.data;
     }
 
     return resp;
@@ -357,7 +361,9 @@ export class OpenAPIRoute<HandleArgs extends Array<object> = any> {
     }
 
     try {
-      return await validationSchema.parseAsync(unvalidatedData);
+      const result = await validationSchema.safeParseAsync(unvalidatedData);
+      if (!result.success) throw result.error;
+      return result.data;
     } catch (e) {
       if (e instanceof z.ZodError) {
         throw new MultiException(
