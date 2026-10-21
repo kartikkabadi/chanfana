@@ -12,14 +12,14 @@
   },
   "dependencies": {
     "chanfana": "^3.3.0",
-    "hono": "^4.12.0",
+    "hono": "^4.13.13",
     "zod": "^4.3.0"
   },
   "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.12.17",
-    "@cloudflare/workers-types": "^4.20260303.0",
+    "@cloudflare/workers-types": "^5.20261021.1",
     "typescript": "^5.9.0",
-    "vitest": "^3.2.0",
-    "wrangler": "^4.68.0"
+    "vitest": "^4.1.11",
+    "wrangler": "^4.151.3",
+    "@cloudflare/vitest-plugin": "^1.4.6"
   }
 }
